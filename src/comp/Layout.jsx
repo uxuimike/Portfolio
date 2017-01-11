@@ -4,6 +4,7 @@ import {Link} from 'react-router';
 
 import * as userActs from '../actions/userActions';
 import * as tweetActs from '../actions/tweetsActions';
+import * as viewActs from '../actions/viewActions';
 
 @connect((store) => {
     return {
@@ -27,7 +28,7 @@ export default class Layout extends Component {
 
 
   onResize(number){
-    this.setState({width: number});
+    this.props.dispatch(viewActs.sizeChange(6969, 101));
   }
 
   onNavigate(){
@@ -46,10 +47,10 @@ export default class Layout extends Component {
     return(
       <div className="App">
         {this.props.children}
-        <h1>Howdy Hey</h1>
         <button onClick={this.onNavigate.bind(this)}>Howdy Hey</button>
         <button onClick={this.onSetUser.bind(this)}>Set User</button>
         <button onClick={this.onFetch.bind(this)}>Fetch</button>
+        <button onClick={this.onResize.bind(this)}>Size</button>
         <h4>User: {this.props.user.name}</h4>
         <Link to=""><button>Home</button></Link>
         <Link to="work"><button>Work</button></Link>
