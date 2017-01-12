@@ -1,0 +1,39 @@
+$desktop: "(min-width: 1024px)";
+
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  background-color: rgb(245, 245, 245);
+  font-family: "acumin-pro";
+  color: rgb(79, 79, 79);
+  margin: 0;
+  padding: 0;
+  font-weight: 200;
+  font-size: 1.8rem;
+}
+
+.App {
+  text-align: center;
+}
+
+h1 {
+  font-weight: 100;
+  font-size: 5rem;
+  border-bottom: solid 1px rgb(251, 108, 104);
+  display: inline;
+  line-height: 1.50;
+  margin: 0;
+  padding: 0;
+}
+
+.Seperator {
+  width: 1%;
+  height: 1px;
+  background-color: rgb(251, 108, 104);
+  margin: 0 auto 0 auto;
+}
