@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Router, Route, IndexRoute, hashHistory} from "react-router";
-import './css/App.css';
+import './css/App.scss';
 
 import Layout from './comp/Layout.jsx';
 import Home from './comp/pages/Home.jsx';

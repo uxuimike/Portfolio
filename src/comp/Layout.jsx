@@ -26,9 +26,16 @@ export default class Layout extends Component {
     }
   }
 
+  componentDidMount() {
+    window.addEventListener("resize", this.onResize.bind(this));
+  }
+
+  componentWillUnmount() {
+      window.removeEventListener("resize", this.onResize.bind(this));
+  }
 
   onResize(number){
-    this.props.dispatch(viewActs.sizeChange(6969, 101));
+    this.props.dispatch(viewActs.sizeChange(window.innerWidth, window.innerHeight));
   }
 
   onNavigate(){
@@ -42,6 +49,8 @@ export default class Layout extends Component {
   onFetch() {
     this.props.dispatch(tweetActs.fetchTweets());
   }
+
+
 
   render(){
     return(
