@@ -1,0 +1,56 @@
+.Block-Wrap {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.Block {
+  width: calc(50% - 10px);
+  background-color: rgb(41, 171, 226);
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  margin: 20px 0 0 0;
+  padding: 0;
+  border: solid 1px rgb(204, 204, 204);
+  border-radius: 3px;
+}
+
+.Block-Info {
+  background-color: rgba(242, 242, 242, 0.95);
+  height: 35%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 2rem 0 2rem;
+}
+
+.Block-Info-Category {
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: rgb(153, 153, 153);
+}
+
+.Block-Info-Title {
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: rgb(77, 77, 77);
+}
+
+.Block-Info-Title-Small {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: rgb(77, 77, 77);
+}
+
+@media #{$desktop} {
+  .Block {
+    width: calc(33% - 40px);
+    margin: 40px 40px 0 0;
+  }
+}

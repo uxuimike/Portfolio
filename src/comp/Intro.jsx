@@ -33,7 +33,7 @@ export default class Intro extends Component {
 
     return(
       //<div className='Home-Intro' style={{fontSize: fSize + '%'}}>
-      <div className='Home-Intro'>
+      <div className='Home-Intro Page-Height'>
         <img src={uxui} className="Home-Intro-Img" alt='UX/UI'></img>
         <div className='Home-Intro-Text' style={{fontSize: this.state.fSize + '%'}}>
           <h1>Mike Nichols</h1>

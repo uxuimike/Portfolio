@@ -7,8 +7,10 @@ $desktop: "(min-width: 1024px)";
 html {
   font-size: 62.5%;
 }
+
 body {
-  background-color: rgb(245, 245, 245);
+  /*background-color: rgb(238, 239, 241); */
+  background-color: rgb(242, 242, 242);
   font-family: "acumin-pro";
   color: rgb(79, 79, 79);
   margin: 0;
@@ -18,12 +20,24 @@ body {
 }
 
 .App {
-  text-align: center;
+  text-align: left;
+  width: 1180px;
+  margin: 0 auto 0 auto;
+}
+
+@media (max-width: 1260px) {
+  html {
+    padding: 0 40px 0 40px;
+  }
+  .App {
+    text-align: left;
+    width: 100%;
+  }
 }
 
 h1 {
   font-weight: 100;
-  font-size: 5rem;
+  font-size: 10rem;
   border-bottom: solid 1px rgb(251, 108, 104);
   display: inline;
   line-height: 1.50;
@@ -31,9 +45,34 @@ h1 {
   padding: 0;
 }
 
+h2 {
+  font-weight: 100;
+  font-size: 7rem;
+  border-bottom: solid 1px rgb(251, 108, 104);
+  display: inline;
+  line-height: 1.50;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration:  none;
+  color: rgb(251, 108, 104);
+  font-size: 2.4rem;
+  font-weight: 400;
+}
+
 .Seperator {
-  width: 1%;
+  width: 100%;
   height: 1px;
   background-color: rgb(251, 108, 104);
   margin: 0 auto 0 auto;
+}
+
+.Page-Height {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 0 10rem 0;
 }
