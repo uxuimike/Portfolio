@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router';
+import Arrow from './Arrow.jsx';
 
 export default class BlockLink extends Component {
 
   render(){
 
     return(
-      <div className="Block">
-        Link BlocK
-      </div>
+      <Link className="Block Block-Link" to={this.props.linkTo.to}>
+        <div className='Block-Link-Wrap'>
+          <p>{this.props.linkTo.title}</p>
+          <Arrow />
+        </div>
+      </Link>
     )
   }
 }

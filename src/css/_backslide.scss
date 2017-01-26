@@ -1,0 +1,72 @@
+.Backslide-Wrap {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: -99999;
+}
+
+.Backslide-Slide {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  animation-fill-mode: forwards;
+}
+
+@keyframes Fade-In {
+  0%   {opacity: 0;}
+  100%   {opacity: 1;}
+}
+
+@keyframes Fade-In-Two {
+  0%   {opacity: 0;}
+  100%   {opacity: 1;}
+}
+
+@keyframes Fade-Out {
+    0%   {opacity: 1;}
+	100%   {opacity: 0;}
+}
+
+@keyframes Slide-In-Right {
+    0%   {transform: translateX(100vw)}
+	100%   {transform: translateX(0vw)}
+}
+
+@keyframes Slide-Out-Right {
+    0%   {transform: translateX(0vw)}
+	100%   {transform: translateX(100vw)}
+}
+
+@keyframes Slide-In-Left {
+    0%   {transform: translateX(-100vw)}
+	100%   {transform: translateX(0vw)}
+}
+
+@keyframes Slide-Out-Left {
+    0%   {transform: translateX(0vw)}
+	100%   {transform: translateX(-100vw)}
+}
+
+@keyframes Slide-In-Top {
+    0%   {transform: translateY(-100vh)}
+	100%   {transform: translateY(0vh)}
+}
+
+@keyframes Slide-Out-Top {
+    0%   {transform: translateY(0vh)}
+	100%   {transform: translateY(-100vh)}
+}
+
+@keyframes Slide-In-Bottom {
+    0%   {transform: translateY(100vh)}
+	100%   {transform: translateY(0vh)}
+}
+
+@keyframes Slide-Out-Bottom {
+    0%   {transform: translateY(0vh)}
+	100%   {transform: translateY(100vh)}
+}

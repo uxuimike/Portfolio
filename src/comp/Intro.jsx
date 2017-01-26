@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import PageSection from './PageSection.jsx'
 import uxui from '../img/uxui.svg';
 import scroll from '../img/scroll-down.svg';
-import {connect} from 'react-redux';
+
+import * as backslideActs from '../actions/backslideActions';
 
 @connect((store) => {
     return {
-        user : store.users.user,
-        viewSize : store.view
+        view : store.view
     }
 })
 
@@ -14,26 +16,37 @@ export default class Intro extends Component {
   constructor() {
     super();
     this.state = {
-      fSize: 62.5
+      fSize: 62.5,
     }
+
   }
 
   componentWillReceiveProps(nextProps) {
-  // You don't have to do this check first, but it can help prevent an unneeded render
-    if (nextProps.viewSize !== this.state.viewSize) {
-      if (nextProps.viewSize.height < 700){
-        this.setState({ fSize: nextProps.viewSize.height/11.2  });
-      }else {
-        this.setState({ fSize: 62.5 });
-      }
+    //TODO Put in a check to prevent uncessary calls
+    if (nextProps.view.height < 700){
+      this.setState({ fSize: nextProps.view.height/11.2  });
+    }else {
+      this.setState({ fSize: 62.5 });
     }
   }
 
   render(){
 
+    const bs = {
+      duration: 0.6,
+      outAnimation: 'none',
+      inAnimation: 'Fade-In',
+      inEase: 'ease-in',
+      outEase: 'ease-out',
+      backgroundColor: 'rgb(204, 204, 251)',
+      bgImg: 'none',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center center',
+      backgroundSize: 'cover'
+    }
+
     return(
-      //<div className='Home-Intro' style={{fontSize: fSize + '%'}}>
-      <div className='Home-Intro Page-Height'>
+      <PageSection backslide={bs} classNames="Home-Intro" adjustTop={-100} adjustBottom={0}>
         <img src={uxui} className="Home-Intro-Img" alt='UX/UI'></img>
         <div className='Home-Intro-Text' style={{fontSize: this.state.fSize + '%'}}>
           <h1>Mike Nichols</h1>
@@ -43,7 +56,7 @@ export default class Intro extends Component {
           </p>
           <img src={scroll} className='Scroll-Down' alt='Arrow'></img>
         </div>
-      </div>
+      </PageSection>
     )
   }
 }

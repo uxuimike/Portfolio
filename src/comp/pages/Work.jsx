@@ -5,7 +5,7 @@ export default class Work extends Component {
 
   render(){
     return(
-      <div>
+      <div id='CurrentPage'>
         <h1>This is WORK</h1>
         <TRez />
       </div>

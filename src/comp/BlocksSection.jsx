@@ -17,7 +17,7 @@ export default class BlocksSection extends Component {
             <Block category='#UX Design' title='Example of what happens if this has a really long title'/>
             <Block category='#UX Design' title='Example Title'/>
             <Block  title='Example Title'/>
-            {this.props.linkTo && <BlockLink />}
+            {this.props.linkTo && <BlockLink linkTo={this.props.linkTo} />}
           </div>
       </section>
     )

@@ -58,7 +58,6 @@ export default class TRez extends Component {
         <button onClick={this.onNavigate.bind(this)}>Howdy Hey</button>
         <button onClick={this.onSetUser.bind(this)}>Set User</button>
         <button onClick={this.onFetch.bind(this)}>Fetch</button>
-        <button onClick={this.onResize.bind(this)}>Size</button>
         <h4>User: {this.props.user.name}</h4>
         <Link to="/"><button>Home</button></Link>
         <Link to="work"><button>Work</button></Link>

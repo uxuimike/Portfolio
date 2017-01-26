@@ -7,3 +7,12 @@ export function sizeChange(w, h) {
     }
   }
 }
+
+export function scrollChange(st) {
+  return {
+    type: "CHANGE_SCROLL",
+    payload: {
+      scrollTop: st
+    }
+  }
+}
