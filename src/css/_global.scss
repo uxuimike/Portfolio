@@ -1,4 +1,7 @@
 $desktop: "(min-width: 1024px)";
+$trans: 'all 0.6s';
+
+$tablet: "(min-width: 768px) and (max-width: 1023px)";
 
 * {
   -webkit-font-smoothing: antialiased;
@@ -17,6 +20,10 @@ body {
   padding: 0;
   font-weight: 200;
   font-size: 1.8rem;
+}
+
+.Page-Wrap {
+  transition: #{$trans};
 }
 
 .clear {
@@ -83,9 +90,6 @@ a {
 }
 
 .Page-Height {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 0 12rem 0; 
+  min-height: 1000px;
+  margin: 0;
 }

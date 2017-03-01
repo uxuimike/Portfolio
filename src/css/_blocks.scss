@@ -1,4 +1,9 @@
 
+.Block-Section {
+    margin: 0;
+    padding: 0 0 100rem 0;
+  }
+
 .Block-Wrap {
   width: 100%;
   display: flex;
@@ -9,14 +14,14 @@
 }
 
 .Block {
-  width: calc(50% - 10px);
+  width: 100%;
   height: 27rem;
   background-color: rgb(41, 171, 226);
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
   text-align: center;
-  margin: 20px 0 0 0;
+  margin: 20px 0 20px 0;
   padding: 0;
   border: solid 1px rgb(204, 204, 204);
   border-radius: 3px;
@@ -67,6 +72,20 @@
 .Block-Link p {
   margin: 0 0 1rem 0;
   padding: 0;
+}
+
+@media #{$tablet} {
+
+  .Block-Wrap {
+    display: block;
+    height: 70%;
+  }
+
+  .Block {
+    float: left;
+    width: calc(50% - 42px);
+    margin: 40px 40px 0 0;
+  }
 }
 
 @media #{$desktop} {

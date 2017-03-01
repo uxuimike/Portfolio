@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
-import * as backslideActs from '../actions/backslideActions';
+import * as viewActs from '../actions/viewActions';
 
 @connect((store) => {
     return {
@@ -13,44 +13,30 @@ export default class PageSection extends Component {
 
   constructor() {
     super();
-    this.state = {
-      outsideSection: true
-    }
     this.comp = null;
   }
 
   componentDidMount() {
     this.comp = this.refs.container;
+    this.regSection();
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.view.scroll) {
-      this.checkScroll(nextProps);
+    if (nextProps.view.height !== this.props.view.height){
+      this.regSection();
     }
   }
 
-  checkScroll(np){
-    if (np.view.scroll > this.comp.offsetTop + this.props.adjustTop &&
-      np.view.scroll < this.comp.offsetTop + this.comp.offsetHeight + this.props.adjustBottom) {
-      if (this.state.outsideSection) {
-        this.setState({outsideSection: false});
-        this.inSection();
-      }
-    }else {
-      this.setState({outsideSection: true});
-    }
-  }
-
-  inSection() {
-    this.props.dispatch(backslideActs.setBg(this.props.backslide));
+  regSection(){
+    this.props.dispatch(viewActs.regSection(this.comp.offsetTop, this.props.section, this.props.backslide));
   }
 
   render(){
 
     return(
-      <div id='PSComp' className={'Page-Height ' + this.props.classNames} ref="container">
+      <section className={this.props.classNames} ref="container">
         {this.props.children}
-      </div>
+      </section>
     )
   }
 }

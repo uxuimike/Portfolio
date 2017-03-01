@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
-
-import * as bgActs from '../actions/backslideActions';
+import * as viewActs from '../actions/viewActions';
 
 @connect((store) => {
     return {
-        slide : store.backslide
+        slide : store.backslide,
+        view: store.view
     }
 })
 
-export default class Backslide extends Component {
+export default class BackslideStyle extends Component {
 
   constructor() {
     super();
@@ -21,31 +21,46 @@ export default class Backslide extends Component {
       outAnimation: 'none',
       inEase: 'linear',
       outEase: 'linear',
-      backgroundColor: 'rgb(242, 242, 242)',
-      bgImg: 'none',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center center',
-      backgroundSize: 'cover',
-      tClass: 'BB-One',
-      flip: true
+      pStyle: '',
+      style: '',
+      flip: true,
+      sections: [],
+      activeSection: ''
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidMount() {
     this.setState({
-      duration: nextProps.slide.duration,
-      inAnimation: nextProps.slide.inAnimation,
-      outAnimation: nextProps.slide.outAnimation,
-      inEase: nextProps.slide.inEase,
-      outEase: nextProps.slide.outEase,
-      flip: !this.state.flip,
-      //Copy props from new to current
-      backgroundColor: this.props.slide.backgroundColor,
-      bgImg: this.props.slide.bgImg,
-      backgroundRepeat: this.props.slide.backgroundRepeat,
-      backgroundPosition: this.props.slide.backgroundPosition,
-      backgroundSize: this.props.slide.backgroundSize,
+      style: this.props.defaultStyle
     });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.view.scroll !== this.props.view.scroll){
+      this.onScroll(nextProps.view.scroll);
+    }
+  }
+
+  onScroll(scroll) {
+    for (let i=0; i < this.props.view.sections.length; i++){
+      if(scroll > this.props.view.sections[i].offset - this.props.view.height + 100){
+        if (this.props.view.sections[i].section !== this.state.activeSection){
+          this.setState({
+            activeSection: this.props.view.sections[i].section,
+            duration: this.props.view.sections[i].slide.duration,
+            inAnimation: this.props.view.sections[i].slide.inAnimation,
+            outAnimation: this.props.view.sections[i].slide.outAnimation,
+            inEase: this.props.view.sections[i].slide.inEase,
+            outEase: this.props.view.sections[i].slide.outEase,
+            flip: !this.state.flip,
+            pStyle: this.state.style,
+            style: this.props.view.sections[i].slide.style.className
+          });
+          this.props.dispatch(viewActs.setStyle(this.props.view.sections[i].slide.style));
+        }
+        break;
+      }
+    }
   }
 
   render(){
@@ -57,28 +72,18 @@ export default class Backslide extends Component {
     };
 
     let newStyle = {
-      animation: this.state.inAnimation + ' ' + this.state.duration + 's ' + this.state.inEase + ' forwards' + ' running',
-      backgroundColor: this.props.slide.backgroundColor,
-      backgroundImage: 'url(' + this.props.slide.bgImg + ')',
-      backgroundRepeat: this.props.slide.backgroundRepeat,
-      backgroundPosition: this.props.slide.backgroundPosition,
-      backgroundSize: this.props.slide.backgroundSize,
+      animation: this.state.inAnimation.toString + ' ' + this.state.duration + 's ' + this.state.inEase + ' forwards running',
     };
 
     let currentStyle = {
-      animation: this.state.outAnimation + ' ' + this.state.duration + 's ' + this.state.outEase + ' forwards' + ' running',
-      backgroundColor: this.state.backgroundColor,
-      backgroundImage: 'url(' + this.state.bgImg + ')',
-      backgroundRepeat: this.state.backgroundRepeat,
-      backgroundPosition: this.state.backgroundPosition,
-      backgroundSize: this.state.backgroundSize,
+      animation: this.state.outAnimation + ' ' + this.state.duration + 's ' + this.state.outEase + ' forwards running',
     };
 
     return(
       <div className="Backslide-Wrap">
-        <div className={'Backslide-Slide'} style={currentStyle} ></div>
-        <div id='gOne' className={'Backslide-Slide'} style={this.state.flip ? newStyle : blankStyle} ></div>
-        <div id='gTwo' className={'Backslide-Slide'} style={this.state.flip ? blankStyle : newStyle} ></div>
+        <div className={'Backslide-Slide ' + this.state.pStyle} style={currentStyle} ></div>
+        <div id='gOne' className={'Backslide-Slide ' + this.state.style } style={this.state.flip ? newStyle : blankStyle} ></div>
+        <div id='gTwo' className={'Backslide-Slide ' + this.state.style} style={this.state.flip ? blankStyle : newStyle} ></div>
       </div>
     )
   }
