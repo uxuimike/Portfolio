@@ -33,3 +33,11 @@ export function getHome() {
     , config)
   }
 }
+
+export function getPage(query) {
+  return {
+    type: 'GET_PAGE',
+    payload: axios.get('https://public-api.wordpress.com/rest/v1.1/sites/uxuimike.wordpress.com/posts/' + query)
+    //payload: axios.get('https://public-api.wordpress.com/rest/v1.1/batch/?urls[0]=/sites/uxuimike.wordpress.com/posts/?category=work&urls[1]=/sites/uxuimike.wordpress.com/posts/? + query')
+  }
+}

@@ -10,8 +10,10 @@
     }
 
 .Block-Wrap {
+  clear: both;
   width: 100%;
   min-height: 50vh;
+  padding: 10px 0 0 0;
   display: flex;
   justify-content: space-between;
   align-items: stretch;
@@ -96,6 +98,7 @@
   font-size: 24px;
   font-weight: 300;
   margin: 84px 0 -20px 0;
+  height: 40px;
 }
 
 .sortBy select {

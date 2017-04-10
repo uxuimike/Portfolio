@@ -3,7 +3,8 @@ const initialState = {
   posts: [],
   featuredWork: [],
   featuredBlog: [],
-  content: {}
+  content: {},
+  page: {}
 };
 
 export default function reducer(state = initialState, action){
@@ -32,10 +33,21 @@ export default function reducer(state = initialState, action){
                content: buildWPContentObj(action.payload.data[JSON.parse(action.payload.config.data).content.url].posts),
               status: 'Fulfilled'
             };
-            // console.log(fObj.content);
             break;
         }
         case 'GET_FEATURED_REJECTED':{
+            state = {...state, status: 'Error'};
+            break;
+        }
+        case 'GET_PAGE_PENDING':{
+            state = {...state, status: 'Pending'};
+            break;
+        }
+        case 'GET_PAGE_FULFILLED':{
+            state = {...state, page: buildWPPageObj(action.payload.data), status: 'Fulfilled'};
+            break;
+        }
+        case 'GET_PAGE_REJECTED':{
             state = {...state, status: 'Error'};
             break;
         }
@@ -59,14 +71,18 @@ function buildWordpressObj(wp) {
   return pArray;
 }
 
+function buildWPPageObj(wp) {
+  wp.content = wp.content.replace(/(<([^>]+)>)/ig,"");
+  console.log(wp);
+  return wp;
+}
+
 function buildWPContentObj(wp) {
   let cObj = {};
   for (var c=0; c < wp.length; c++){
-    wp[c].content = wp[c].content.replace(/(<([^>]+)>)/ig,"");;
+    wp[c].content = wp[c].content.replace(/(<([^>]+)>)/ig,"");
     cObj[wp[c].slug] = wp[c];
   }
-
-  console.log('BWC', cObj);
   return cObj;
 }
 

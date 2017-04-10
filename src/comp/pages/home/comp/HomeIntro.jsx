@@ -30,6 +30,10 @@ export default class HomeIntro extends Component {
 
   }
 
+  componentDidMount(){
+   this.onHeight(this.props.view.height);
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.view.height !== this.props.view.height){
       this.onHeight(nextProps.view.height);
