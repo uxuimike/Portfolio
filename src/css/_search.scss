@@ -1,0 +1,70 @@
+
+
+.SearchWrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 555;
+  width: 100%;
+  height: 64px;
+  background-color: rgba(252, 252, 252, 0.9);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.SearchField {
+  width: 1180px;
+  height: 40px;
+  margin: 12px auto 0 auto;
+}
+
+.SearchField input {
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 40px 0 40px;
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(222, 222, 222);
+  font-size: 18px;
+  color: rgb(79, 79, 79);
+  line-height: 40px;
+  outline-style: none;
+  background-image: url('../img/search.svg');
+  background-position: 10px 10px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+}
+
+.SearchField ::-webkit-input-placeholder {
+  font-size: 14px;
+  line-height: 40px;
+}
+.SearchField ::-moz-placeholder { /* Firefox 19+ */
+  font-size: 14px;
+  line-height: 40px;
+}
+.SearchField :-ms-input-placeholder { /* IE 10+ */
+  font-size: 14px;
+  line-height: 40px;
+}
+.SearchField :-moz-placeholder { /* Firefox 18- */
+  font-size: 14px;
+  line-height: 40px;
+}
+
+.SearchClear {
+  float: left;
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  margin: 0 0 0 -40px;
+  padding: 0;
+  background-image: url('../img/clear.svg');
+  background-position: 10px 10px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}

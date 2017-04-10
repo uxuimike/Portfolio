@@ -1,11 +1,9 @@
 import { combineReducers } from "redux";
 
-import tweets from "./tweetsReducer";
-import users from "./userReducer";
+import feed from './feedReducer';
 import view from './viewReducer';
 
 export default combineReducers({
-    tweets,
-    users,
+    feed,
     view
 });

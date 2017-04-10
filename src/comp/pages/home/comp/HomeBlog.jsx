@@ -13,20 +13,21 @@ export default class HomeBlog extends Component {
       inAnimation: 'Fade-In',
       inEase: 'ease-in',
       outEase: 'ease-out',
-      style: {className: 'Home-Blog-BG', color: 'rgb(79, 79, 79)', border: 'solid 1px rgb(251, 108, 104)'}
+      style: {className: 'Home-Blog-BG', color: 'rgb(251, 251, 251)'}
     }
 
+    let posts = this.props.posts;
+    let blockList = posts.map((posts) =>
+      <Block key={posts.id} category={posts.tag} title={posts.title} img={posts.img}/>
+    );
+
     return(
-      <PageSection section='HomeBlog' classNames='Block-Section' backslide={bs} adjustTop={0} adjustBottom={0}>
+      <PageSection section='HomeBlog' classNames='Block-Section-Blog' backslide={bs} adjustTop={0} adjustBottom={0}>
         <div className='Page-Height-Title'>
-          <h2 style={{borderBottom: this.props.borderBottom}}>BLOG</h2>
+          <h2>BLOG</h2>
         </div>
           <div className="Block-Wrap">
-            <Block category='#UX Design' title='Example Title'/>
-            <Block category='#UX Design' title='Example Title'/>
-            <Block category='#UX Design' title='Example of what happens if this has a really long title'/>
-            <Block category='#UX Design' title='Example Title'/>
-            <Block  title='Example Title'/>
+            {blockList}
             <BlockLink linkTo='work' />
             <div className='clear'></div>
           </div>

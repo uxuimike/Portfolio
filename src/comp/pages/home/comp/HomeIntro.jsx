@@ -18,12 +18,12 @@ export default class HomeIntro extends Component {
     }
 
     this.bs = {
-      duration: .6,
+      duration: 0.6,
       outAnimation: 'none',
       inAnimation: 'Fade-In',
       inEase: 'ease-in',
       outEase: 'ease-out',
-      style: {className: 'Home-Intro-BG', color: 'rgb(79, 79, 79)', border: 'solid 1px rgb(251, 108, 104)'}
+      style: {className: 'Home-Intro-BG', color: 'rgb(79, 79, 79)'}
     }
 
     this.fs = 62.5;
@@ -53,16 +53,17 @@ export default class HomeIntro extends Component {
   render(){
 
     return(
-      <PageSection section='HomeIntro' classNames='Page-Height Home-Intro' backslide={this.bs} adjustTop={-100} adjustBottom={-500} >
+      <PageSection section='HomeIntro' classNames='Page-Height HomeIntro' backslide={this.bs} adjustTop={-100} adjustBottom={-500} >
         <div className='Home-Intro-Text' style={{fontSize: this.state.fSize + '%', marginTop: this.state.mTop + 'px'}}>
-          <h1 style={{borderBottom: this.props.borderBottom}}>Mike Nichols</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nisl erat, aliquet et pretium eu, fringilla vel nisl.
-            Proin condimentum pretium vestibulum. {this.props.view.scroll}
-          </p>
+          <h1>{this.props.content.title}</h1>
+          <p>{this.props.content.content}</p>
           <img src={scroll} className={'Scroll-Down ' + (this.props.view.scroll < 5 ? '' : 'Scroll-Down-Hide')} alt='Arrow'></img>
         </div>
       </PageSection>
     )
   }
 }
+
+HomeIntro.defaultProps = {
+  content: {}
+};

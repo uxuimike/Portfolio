@@ -25,11 +25,13 @@ export function regSection(off, sec, bs) {
     }
   }
 }
-export function setStyle(style) {
+
+export function setStyle(style, section) {
   return {
     type: "CHANGE_STYLE",
     payload: {
-      style: style
+      style: style,
+      section: section
     }
   }
 }

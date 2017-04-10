@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import Menu from './Menu.jsx';
+import Contact from './Contact.jsx';
 
 import * as viewActs from '../actions/viewActions';
 
@@ -53,7 +55,9 @@ export default class Layout extends Component {
   render(){
     return(
       <div className="App">
+        <Menu />
         {this.props.children}
+        <Contact />
       </div>
     )
   }

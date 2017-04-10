@@ -56,7 +56,12 @@ export default class BackslideStyle extends Component {
             pStyle: this.state.style,
             style: this.props.view.sections[i].slide.style.className
           });
-          this.props.dispatch(viewActs.setStyle(this.props.view.sections[i].slide.style));
+          this.props.dispatch(
+            viewActs.setStyle(
+              this.props.view.sections[i].slide.style,
+              this.props.view.sections[i].section
+           )
+         );
         }
         break;
       }
@@ -72,7 +77,7 @@ export default class BackslideStyle extends Component {
     };
 
     let newStyle = {
-      animation: this.state.inAnimation.toString + ' ' + this.state.duration + 's ' + this.state.inEase + ' forwards running',
+      animation: this.state.inAnimation + ' ' + this.state.duration + 's ' + this.state.inEase + ' forwards running',
     };
 
     let currentStyle = {

@@ -1,0 +1,120 @@
+/* ---------- Contact Backsilde ----------*/
+.Contact {
+  position: absolute;
+  left: 0;
+  top: auto;
+  width: 100%;
+  background-color: rgb(41, 171, 226);
+  background-image: none;
+  margin: 120px 0 0 0;
+
+}
+
+.Contact-Left {
+  float: left;
+  width: 75%;
+  box-sizing: border-box;
+  padding: 40px 120px 40px 120px;
+  border-right: solid 1px rgb(212, 212, 212);
+  background-color: rgb(232, 232, 232);
+}
+
+.Contact-Right {
+  float: left;
+  width: 25%;
+  box-sizing: border-box;
+  padding: 40px 40px 0 40px;
+}
+
+.Contact label {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  color: rgb(79, 79, 79);
+}
+
+.Contact-Right label {
+  font-size: 16px;
+  color: rgb(222, 222, 222);
+  margin: 0 0 -5px 0;
+}
+
+.Contact input, .Contact textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 0 20px 0;
+  padding: 10px 20px 10px 20px;
+  border-radius: 2px;
+  background-color: rgb(228, 228, 228);
+  border: 1px solid rgb(204, 204, 204);
+  color: rgb(79, 79, 79);
+  font-size: 18px;
+}
+
+.Contact input {
+  width: 60%;
+}
+
+.Contact textarea {
+  float: left;
+  width: 80%;
+  height: 120px;
+  resize: none;
+  outline: none;
+}
+
+.Contact a {
+  display: block;
+  font-size: 18px;
+  color: rgb(252, 252, 252);
+  margin: 0 0 20px 0;
+}
+
+.Contact button {
+  width: 25%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 20px 0 20px;
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(41, 171, 226);
+  font-size: 18px;
+  color: rgb(242, 242, 242);
+  line-height: 40px;
+  cursor: pointer;
+}
+
+.Contact-Message-Buttons {
+  box-sizing: border-box;
+  float: left;
+  width: 20%;
+  padding: 0 10px 0 10px;
+}
+
+.Contact-Message-Buttons button{
+  display: block;
+  clear: both;
+  float: left;
+  width: 50%;
+  margin: 0 0 5px 0;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 14px;
+  padding: 12px 0 12px 0;
+}
+
+.Contact-Message-Check{
+  display: block;
+  float: left;
+  width: 50%;
+  height: 40px;
+}
+
+.Contact-Message-Check img{
+  width: 30px;
+  height: 30px;
+  margin: 5px 0 0 10px;
+  transition: #{$trans};
+}

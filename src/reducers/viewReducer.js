@@ -6,7 +6,7 @@ const initialState = {
     scroll: -20,
     sections: [],
     activeSection: 'none',
-    style: ''
+    style: {className: 'none', color: 'rgb(79, 79, 79)'}
 };
 
 export default function reducer(state = initialState, action){
@@ -32,7 +32,7 @@ export default function reducer(state = initialState, action){
           break;
         }
         case 'CHANGE_STYLE':{
-          state = {...state, style: action.payload.style};
+          state = {...state, style: action.payload.style, activeSection: action.payload.section};
           break;
         }
         default:

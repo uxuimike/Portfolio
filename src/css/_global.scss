@@ -1,7 +1,7 @@
 $desktop: "(min-width: 1024px)";
 $trans: 'all 0.6s';
-
 $tablet: "(min-width: 768px) and (max-width: 1023px)";
+$siteWidth: '1180px';
 
 * {
   -webkit-font-smoothing: antialiased;
@@ -32,7 +32,7 @@ body {
 
 .App {
   text-align: left;
-  width: 1180px;
+  width: #{$siteWidth};
   margin: 0 auto 0 auto;
 }
 
@@ -68,6 +68,7 @@ h2 {
   line-height: 1.50;
   margin: 0;
   padding: 0;
+  transition: #{$trans};
 }
 
 a {
@@ -75,6 +76,15 @@ a {
   color: rgb(251, 108, 104);
   font-size: 2.4rem;
   font-weight: 400;
+  transition: #{$trans};
+}
+
+button {
+  outline-style: none;
+}
+
+p {
+  transition: #{$trans};
 }
 
 .See-More-Img svg {
