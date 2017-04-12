@@ -10,15 +10,15 @@ import Blog from './comp/pages/BlogPage.jsx';
 
 export default class App extends Component {
 
-
   render() {
 
     return (
-      <Router history={hashHistory}>
+      <Router history={hashHistory} >
         <Route path="/" component={Layout}>
           <IndexRoute component={Home}></IndexRoute>
-          <Route path="work" component={Work}></Route>
+          <Route path="work" component={Blog}></Route>
           <Route path="blog" component={Blog}></Route>
+          <Route path="search" component={Blog}></Route>
         </Route>
       </Router>
     );

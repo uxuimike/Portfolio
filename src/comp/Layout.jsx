@@ -19,12 +19,14 @@ export default class Layout extends Component {
       device: "mobile",
       orientation: "portrait",
       width: 960,
-      height: 1080
+      height: 1080,
+      arrowUp: 0,
+      arrowDown: 0,
     };
 
     this.onResize = this.onResize.bind(this);
     this.onScroll = this.onScroll.bind(this);
-
+    
   }
 
   componentDidMount() {
@@ -49,7 +51,6 @@ export default class Layout extends Component {
     if (this.sp > this.props.scrollPos + 10 || this.sp < this.props.scrollPos - 10) {
       this.props.dispatch(viewActs.setScroll(document.body.scrollTop));
     }
-
   }
 
   render(){

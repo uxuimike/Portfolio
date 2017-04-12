@@ -16,11 +16,10 @@ export default class HomeAbout extends Component {
     }
 
     return(
-      <PageSection section='HomeAbout' classNames='Page-Height HomeAbout' backslide={bs} adjustTop={-500} adjustBottom={0}>
+      <PageSection section='HomeAbout' classNames='HomeAbout' backslide={bs} adjustTop={-500} adjustBottom={0}>
         <div className='Page-Height-Item'>
           <h2>{this.props.content.title}</h2>
           <p>{this.props.content.content}</p>
-        <Link className='See-More-Img' to="blog">See More <Arrow /></Link>
         </div>
       </PageSection>
     )

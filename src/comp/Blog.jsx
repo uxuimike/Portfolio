@@ -6,6 +6,7 @@ import BlockSection from './BlockSection.jsx'
 import {connect} from 'react-redux';
 import * as viewActs from '../actions/viewActions';
 import * as feedActs from '../actions/feedActions';
+import {hashHistory} from "react-router";
 
 @connect((store) => {
     return {
@@ -19,6 +20,7 @@ export default class Blog extends Component {
     super(props);
     this.state = {
       search: '',
+      category: 'blog',
       sortOn: 'date',
       sortBy: 'DESC',
       ascTitle: 'Oldest first',
@@ -28,21 +30,31 @@ export default class Blog extends Component {
   }
 
   componentDidMount(){
-    if (this.props.location.search.length > 0){
-      this.setState({singlePage: true});
-    }
 
     this.props.dispatch(
       viewActs.setStyle(
         {className: 'Blog-BG', color: 'rgb(79, 79, 79)'},
         null
-     )
-   );
-   this.loadFeed();
+      )
+    );
+
+    if (this.props.location.search.length > 0){
+      this.setState({singlePage: true});
+    }else {
+      this.loadFeed();
+    }
+
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.search !== this.state.search || prevState.sortOn !== this.state.sortOn || prevState.sortBy !== this.state.sortBy) {
+      this.loadFeed();
+    }
+
+    if (prevProps.location.pathname.replace('/', '') !== this.props.location.pathname.replace('/', '')) {
+      if (this.props.location.pathname.replace('/', '') !== 'search'){
+        this.setState({search: ''});
+      }
       this.loadFeed();
     }
 
@@ -53,10 +65,11 @@ export default class Blog extends Component {
         this.setState({singlePage: false});
       }
     }
-    
+
   }
 
   loadFeed(){
+    window.scrollTo(0, 0);
     if (this.state.search.length > 0){
       var hashI = this.state.search.indexOf('#');
       if (hashI > -1){
@@ -66,7 +79,7 @@ export default class Blog extends Component {
         this.props.dispatch(feedActs.getFeed('order_by=' + this.state.sortOn + '&order=' + this.state.sortBy + '&search=' + this.state.search ));
       }
     }else {
-      this.props.dispatch(feedActs.getFeed('order_by=' + this.state.sortOn + '&order=' + this.state.sortBy + '&category=' + this.props.category));
+      this.props.dispatch(feedActs.getFeed('order_by=' + this.state.sortOn + '&order=' + this.state.sortBy + '&category=' + this.props.location.pathname.replace('/', '')));
     }
   }
 
@@ -75,12 +88,15 @@ export default class Blog extends Component {
   }
 
   onSearchField(search){
-    this.setState({search: search});
+    this.setState({
+      search: search
+    });
+    hashHistory.push('search');
   }
 
   renderConditionalComponent() {
     if (this.state.singlePage){
-      return <SinglePage />
+      return <SinglePage id={this.props.location.search.replace('?', '')}/>
     }else {
       return(
         <div>
@@ -96,7 +112,7 @@ export default class Blog extends Component {
     return(
 
       <div>
-        <SearchBar onSearchField={this.onSearchField.bind(this)}/>
+        <SearchBar onSearchField={this.onSearchField.bind(this)} />
         {this.renderConditionalComponent()}
       </div>
     )

@@ -6,7 +6,7 @@ export default class BlogPage extends Component {
   render(){
 
     return(
-      <Blog title='Blog' category='blog' location={this.props.location}/>
+      <Blog location={this.props.location}/>
     )
   }
 

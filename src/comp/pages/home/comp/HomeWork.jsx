@@ -18,7 +18,7 @@ export default class HomeWork extends Component {
 
     let posts = this.props.posts;
     let blockList = posts.map((posts) =>
-      <Block key={posts.ID} category={posts.tag} title={posts.title} img={posts.img}/>
+      <Block key={posts.ID} category={posts.tag} title={posts.title} img={posts.img} slug={posts.slug}/>
     );
 
     return(

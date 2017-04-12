@@ -1,10 +1,12 @@
 const initialState = {
-  status: 'empty',
+  status: 'Pending',
   posts: [],
   featuredWork: [],
   featuredBlog: [],
   content: {},
-  page: {}
+  page: {},
+  searchStatus: 'Pending',
+  search: []
 };
 
 export default function reducer(state = initialState, action){
@@ -15,6 +17,10 @@ export default function reducer(state = initialState, action){
         }
         case 'GET_FEED_FULFILLED':{
             state = {...state, posts: buildWordpressObj(action.payload.data.posts), status: 'Fulfilled'};
+            break;
+        }
+        case 'GET_FEED_REJECTED':{
+            state = {...state, status: 'Error'};
             break;
         }
         case 'GET_HOME_REJECTED':{
@@ -51,6 +57,18 @@ export default function reducer(state = initialState, action){
             state = {...state, status: 'Error'};
             break;
         }
+        case 'GET_SEARCH_PENDING':{
+            state = {...state, searchStatus: 'Pending'};
+            break;
+        }
+        case 'GET_SEARCH_FULFILLED':{
+            state = {...state, search: buildWordpressObj(action.payload.data.posts), searchStatus: 'Fulfilled'};
+            break;
+        }
+        case 'GET_SEARCH_REJECTED':{
+            state = {...state, searchStatus: 'Error'};
+            break;
+        }
         default:
     }
     return state;
@@ -65,6 +83,7 @@ function buildWordpressObj(wp) {
       tag: convertTags(wp[i].tags),
       img: wp[i].featured_image,
       date: wp[i].date,
+      slug: wp[i].slug
     }
     pArray.push(pObj);
   }
@@ -73,7 +92,6 @@ function buildWordpressObj(wp) {
 
 function buildWPPageObj(wp) {
   wp.content = wp.content.replace(/(<([^>]+)>)/ig,"");
-  console.log(wp);
   return wp;
 }
 

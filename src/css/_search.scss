@@ -15,25 +15,14 @@
 
 .SearchField {
   width: 100%;
-  height: 40px;
-  margin: 12px auto 0 auto;
-}
-
-@media (min-width: 1410px) {
-  .SearchWrap {
-    padding: 0px;
-  }
-
-  .SearchField {
-    max-width: 1180px;
-  }
+  margin: 12px auto 0px auto;
 }
 
 .SearchField input {
   float: left;
   width: 100%;
   box-sizing: border-box;
-  margin: 0;
+  margin: 0px;
   padding: 0 40px 0 40px;
   border: none;
   border-radius: 3px;
@@ -79,4 +68,138 @@
   cursor: pointer;
   border: none;
   background-color: transparent;
+}
+
+.Search-Results {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0px 0px 0 0px;
+  background-color: rgb(252, 252, 252);
+  margin: 0px auto 0px auto;
+  border-top: none;
+  border-right: 1px solid rgb(204, 204, 204);
+  border-bottom: 1px solid rgb(204, 204, 204);
+  border-left: 1px solid rgb(204, 204, 204);
+  z-index: 999999;
+  border-radius: 3px;
+  overflow-y: auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.Search-Count {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 0 20px 40px;
+  font-size: 18px;
+  border-bottom: 1px solid rgb(204, 204, 204);
+}
+
+.Search-Count a{
+  padding: 0 0 0 10px;
+  font-size: 14px;
+  cursor: pointer;
+  color: rgb(41, 171, 226);
+}
+
+.Search-Count-Number {
+  font-weight: bold;
+}
+
+.sortBy {
+  font-size: 24px;
+  font-weight: 300;
+  margin: 84px 0 -20px 0;
+  height: 40px;
+}
+
+.sortBy select {
+  height: 24px;
+  margin: 0 10px 0 10px;
+  padding: 0 20px 0 0;
+  font-size: 18px;
+  color: rgb(41, 171, 226);
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid rgb(79, 79, 79);
+  border-left: none;
+  border-radius: 0px;
+  -webkit-appearance: none;
+  background-color: transparent;
+  background-image: url('../img/drop-arrow.svg');
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+  outline: none;
+}
+
+.No-Results {
+  margin: 100px 0 0 0;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.Go-To {
+  display: block;
+  font-size: 24px;
+  margin: 0 0 20px 0;
+  background-color: rgb(41, 171, 226);
+  color: rgb(242, 242, 242);
+  width: 200px;
+  padding: 10px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.List-Item {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid rgb(204, 204, 204);
+  min-height: 40px;
+  color: rgb(77, 77, 77);
+}
+
+.List-Item:hover {
+  background-color: rgb(232, 232, 232);
+}
+
+.List-Highlight {
+  background-color: rgb(232, 232, 232);
+}
+
+.List-Img {
+  float: left;
+  width: 106px;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(242, 242, 242);
+}
+
+.List-Info {
+  float: left;
+  width: 60%;
+  padding: 0 0 0 20px;
+}
+
+.List-Info-Title {
+  font-size: 24px;
+  line-height: 24px;
+  margin: 5px 0 0 0;
+}
+
+.List-Info-Category {
+  font-size: 16px;
+}
+
+.List-Info-Text {
+  font-size: 14px;
+}
+
+.Search-Catch-Click {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }

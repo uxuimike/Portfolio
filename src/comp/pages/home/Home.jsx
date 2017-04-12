@@ -21,6 +21,8 @@ import * as feedActs from '../../../actions/feedActions';
 export default class Home extends Component {
 
   componentDidMount(){
+    window.scrollTo(0, 0);
+
     this.props.dispatch(
       viewActs.setStyle(
         {className: 'Home-Intro-BG', color: 'rgb(79, 79, 79)'},
