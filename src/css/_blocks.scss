@@ -144,9 +144,8 @@
 
 .Blog-Type {
   display: block;
-  float: left;
   height: 44px;
-  margin: 0 20px 0 10px;
+  margin: 0 20px 0 0;
   padding: 0 20px 0 0;
   font-size: 32px;
   color: rgb(41, 171, 226);
@@ -185,7 +184,7 @@
 .Back-Link {
   display: block;
   width: 100px;
-  margin: 100px 0 0 0;
+  margin: 80px 0 0 0;
   color: rgb(41, 171, 226);
   cursor: pointer;
 }
@@ -203,6 +202,10 @@
     width: calc(50% - 42px);
     margin: 40px 40px 0 0;
   }
+
+  .Blog-Type {
+    float: left;
+  }
 }
 
 @media #{$desktop} {
@@ -216,5 +219,9 @@
     float: left;
     width: calc(33% - 40px);
     margin: 40px 40px 0 0;
+  }
+
+  .Blog-Type {
+    float: left;
   }
 }

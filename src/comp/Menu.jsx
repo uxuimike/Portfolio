@@ -31,11 +31,13 @@ export default class Menu extends Component {
 
     return(
       <nav id='MainMenu' className={this.state.open}>
-        <button className={'hamburger hamburger--squeeze ' +  this.state.open} type='button' onClick={this.onHamburger.bind(this)}>
-          <span className='hamburger-box'>
-            <span className='hamburger-inner' style={{backgroundColor: this.state.open === 'is-active' ? 'rgb(79, 79, 79)' : this.props.view.style.color}}></span>
-          </span>
-        </button>
+        <div className='burgerWrap'>
+          <button className={'hamburger hamburger--squeeze ' +  this.state.open} type='button' onClick={this.onHamburger.bind(this)}>
+            <span className='hamburger-box'>
+              <span className='hamburger-inner' style={{backgroundColor: this.state.open === 'is-active' ? 'rgb(79, 79, 79)' : this.props.view.style.color}}></span>
+            </span>
+          </button>
+        </div>
         <div id='MenuWrap'>
           <ul>
             <IndexLink to="/" onClick={this.onHamburger.bind(this)} activeClassName="active"><li>Home</li></IndexLink>

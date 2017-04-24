@@ -1,8 +1,8 @@
 {
-  "name": "alerts-management",
+  "name": "mike-nichols-dot-me",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/alerts",
+  "homepage": "/",
   "devDependencies": {
     "@bokuweb/react-draggable-custom": "^1.4.0",
     "autoprefixer": "6.4.1",
