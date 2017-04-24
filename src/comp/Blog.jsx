@@ -8,7 +8,6 @@ import {connect} from 'react-redux';
 import * as viewActs from '../actions/viewActions';
 import * as feedActs from '../actions/feedActions';
 import {hashHistory} from "react-router";
-import Router from 'react-router';
 
 @connect((store) => {
     return {
