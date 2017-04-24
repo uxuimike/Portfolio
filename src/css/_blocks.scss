@@ -13,7 +13,7 @@
   clear: both;
   width: 100%;
   min-height: 50vh;
-  padding: 10px 0 0 0;
+  padding: 20px 0 0 0;
   display: flex;
   justify-content: space-between;
   align-items: stretch;
@@ -97,13 +97,34 @@
 .sortBy {
   font-size: 24px;
   font-weight: 300;
-  margin: 84px 0 -20px 0;
-  height: 40px;
+  margin: 20px 0 0 0;
 }
 
-.sortBy select {
+.sortBy {
+  font-size: 24px;
+  font-weight: 300;
+  margin: 20px 0 0 0;
+}
+
+.Blog-Sort-Wrap {
+  margin: 0 0 -20px 0;
+}
+
+.Blog-Title h2{
+  line-height: 100px;
+}
+
+.sortBy label {
+  display: block;
+  float: left;
+  margin: 10px 0 0 0;
+}
+
+.Sort-Select {
+  display: block;
+  float: left;
   height: 24px;
-  margin: 0 10px 0 10px;
+  margin: 20px 10px 0 10px;
   padding: 0 20px 0 0;
   font-size: 18px;
   color: rgb(41, 171, 226);
@@ -117,6 +138,29 @@
   background-image: url('../img/drop-arrow.svg');
   background-repeat: no-repeat;
   background-position: 100% 50%;
+  background-size: 10px 5px;
+  outline: none;
+}
+
+.Blog-Type {
+  display: block;
+  float: left;
+  height: 44px;
+  margin: 0 20px 0 10px;
+  padding: 0 20px 0 0;
+  font-size: 32px;
+  color: rgb(41, 171, 226);
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid rgb(79, 79, 79);
+  border-left: none;
+  border-radius: 0px;
+  -webkit-appearance: none;
+  background-color: transparent;
+  background-image: url('../img/drop-arrow.svg');
+  background-repeat: no-repeat;
+  background-position: 100% 60%;
+  background-size: 10px 5px;
   outline: none;
 }
 
@@ -138,11 +182,20 @@
   text-align: center;
 }
 
+.Back-Link {
+  display: block;
+  width: 100px;
+  margin: 100px 0 0 0;
+  color: rgb(41, 171, 226);
+  cursor: pointer;
+}
+
 @media #{$tablet} {
 
   .Block-Wrap {
     display: block;
     height: 70%;
+    padding: 0 0 0 0;
   }
 
   .Block {
@@ -156,6 +209,7 @@
   .Block-Wrap {
     display: block;
     height: 70%;
+    padding: 0 0 0 0;
   }
 
   .Block {

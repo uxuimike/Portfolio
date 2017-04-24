@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as feedActs from '../actions/feedActions';
 import {connect} from 'react-redux';
+import ContentDisplay from './ContentDisplay.jsx';
 
 @connect((store) => {
   return {
@@ -16,7 +17,7 @@ export default class SinglePage extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.id !== this.props.id){
+    if (prevProps.id !== this.props.id && this.props.id.length > 0){
       this.loadPage();
     }
   }
@@ -31,7 +32,7 @@ export default class SinglePage extends Component {
       return (
         <div className='Single-Page-Wrap'>
           <h1>{this.props.page.title}</h1>
-          <p>{this.props.page.content}</p>
+          <ContentDisplay content={this.props.page.content} />
         </div>
       )
     }else if (this.props.status === 'Pending'){

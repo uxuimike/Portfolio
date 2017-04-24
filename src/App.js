@@ -4,11 +4,15 @@ import './css/App.scss';
 
 import Layout from './comp/Layout.jsx';
 import Home from './comp/pages/home/Home.jsx';
-import Work from './comp/pages/WorkPage.jsx';
 import Blog from './comp/pages/BlogPage.jsx';
 
 
 export default class App extends Component {
+
+  onBack(){
+    console.log('Back');
+    Router.history.goBack();
+  }
 
   render() {
 

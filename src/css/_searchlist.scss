@@ -94,32 +94,6 @@
   padding: 0;
 }
 
-.sortBy {
-  font-size: 24px;
-  font-weight: 300;
-  margin: 84px 0 -20px 0;
-  height: 40px;
-}
-
-.sortBy select {
-  height: 24px;
-  margin: 0 10px 0 10px;
-  padding: 0 20px 0 0;
-  font-size: 18px;
-  color: rgb(41, 171, 226);
-  border-top: none;
-  border-right: none;
-  border-bottom: 1px solid rgb(79, 79, 79);
-  border-left: none;
-  border-radius: 0px;
-  -webkit-appearance: none;
-  background-color: transparent;
-  background-image: url('../img/drop-arrow.svg');
-  background-repeat: no-repeat;
-  background-position: 100% 50%;
-  outline: none;
-}
-
 .No-Results {
   margin: 100px 0 0 0;
   font-size: 24px;

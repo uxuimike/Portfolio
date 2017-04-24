@@ -111,7 +111,7 @@ export default class SearchBar extends Component {
   }
 
   loadHighlighted(){
-    if (this.state.highlightNum < this.props.results.length && this.state.highlightNum  > 0) {
+    if (this.state.highlightNum < this.props.results.length && this.state.highlightNum  > -1) {
       hashHistory.push('blog?' + this.props.results[this.state.highlightNum].slug);
       this.setState({
         search: ''
@@ -161,7 +161,3 @@ export default class SearchBar extends Component {
     )
   }
 }
-
-SearchBar.propTypes = {
-  onSearchField: React.PropTypes.func.isRequired
-};

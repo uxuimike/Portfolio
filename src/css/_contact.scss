@@ -84,24 +84,10 @@
   cursor: pointer;
 }
 
-.Contact-Message-Buttons {
+.Contact-Message-Check-Wrap{
   display: none;
-  box-sizing: border-box;
   float: left;
-  width: 20%;
-  padding: 0 10px 0 10px;
-}
-
-.Contact-Message-Buttons button{
-  display: block;
-  clear: both;
-  float: left;
-  width: 50%;
-  margin: 0 0 5px 0;
-  font-size: 12px;
-  font-weight: bold;
-  line-height: 14px;
-  padding: 12px 0 12px 0;
+  width: 20%
 }
 
 .Contact-Message-Check{
@@ -109,20 +95,46 @@
   float: left;
   width: 50%;
   height: 40px;
+  transition: #{$trans};
 }
 
 .Contact-Message-Check img{
+  float: left;
   width: 30px;
   height: 30px;
   margin: 5px 0 0 10px;
-  transition: #{$trans};
+}
+
+.Contact-Message-Check p{
+  display: block;
+  float: left;
+  width: 20px;
+  line-height: 23px;
+  margin: 7px 0 0 5px;
+}
+
+.Contact-Sending {
+  opacity: 0;
+}
+
+.Contact-Sent {
+  animation-name: Contact-Fade;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+
+@keyframes Contact-Fade {
+    0%   {opacity: 0; }
+   80%   {opacity: 0; }
+	100%   {opacity: 1; }
 }
 
 @media #{$desktop} {
   .Contact-Left {
     float: left;
     width: 75%;
-    padding: 40px 120px 40px 120px;
+    padding: 40px 0 40px 120px;
   }
 
   .Contact-Right {
@@ -135,7 +147,10 @@
     width: 80%;
   }
 
-  .Contact-Message-Buttons {
+}
+
+@media (min-width: 1050px) {
+  .Contact-Message-Check-Wrap{
     display: block;
   }
 }

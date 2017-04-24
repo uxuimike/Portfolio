@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
 import Arrow from '../../../Arrow.jsx';
-import PageSection from '../../../PageSection.jsx'
+import PageSection from '../../../PageSection.jsx';
+import ContentDisplay from '../../../ContentDisplay.jsx';
 
 export default class HomeAbout extends Component {
 
@@ -16,10 +17,12 @@ export default class HomeAbout extends Component {
     }
 
     return(
-      <PageSection section='HomeAbout' classNames='HomeAbout' backslide={bs} adjustTop={-500} adjustBottom={0}>
+      <PageSection section='HomeAbout' classNames='HomeAbout' backslide={bs} adjustTop={0} adjustBottom={0}>
         <div className='Page-Height-Item'>
           <h2>{this.props.content.title}</h2>
-          <p>{this.props.content.content}</p>
+          <ContentDisplay content={this.props.content.content} />
+          <Link className="About-Links See-More-Img" to='work'>See The Work <Arrow /></Link>
+          <Link className="About-Links See-More-Img" to='blog'>Read The Blog <Arrow /></Link>
         </div>
       </PageSection>
     )

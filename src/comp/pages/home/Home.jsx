@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import HomeIntro from './comp/HomeIntro.jsx';
 import HomeAbout from './comp/HomeAbout.jsx';
-import HomeWork from './comp/HomeWork.jsx';
-import HomeBlog from './comp/HomeBlog.jsx';
 import Backslide from '../../Backslide.jsx'
 
 import {connect} from 'react-redux';
@@ -42,8 +40,6 @@ export default class Home extends Component {
       <div id='HomePage' className={'Page-Wrap active' + this.props.view.activeSection}>
         <HomeIntro content={this.props.content.homeintro}/>
         <HomeAbout content={this.props.content.homeabout} />
-        <HomeWork posts={this.props.feed.featuredWork} />
-        <HomeBlog posts={this.props.feed.featuredBlog} />
         <Backslide defaultStyle='Home-Intro-BG'/>
       </div>
     )

@@ -64,6 +64,7 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "dompurify": "^0.8.5",
     "moment": "^2.15.2",
     "react": "^15.3.2",
     "react-addons-css-transition-group": "^15.4.2",

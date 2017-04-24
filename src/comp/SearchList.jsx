@@ -22,7 +22,7 @@ export default class SearchList extends Component {
       <Link
         onClick={this.props.click}
         to={"blog?" + this.props.slug}
-        className={'List-Item ' + (this.props.highlight == this.props.id ? 'List-Highlight' : '') }
+        className={'List-Item ' + (this.props.highlight === this.props.id ? 'List-Highlight' : '') }
 
       >
         <div className='List-Img' style={{backgroundImage: 'url(' + this.props.img + ')'}} ></div>

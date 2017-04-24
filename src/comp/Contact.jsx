@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 import check from '../img/check.svg';
 
+import {connect} from 'react-redux';
+import * as contactActs from '../actions/contactActions';
+
+@connect((store) => {
+    return {
+        contact: store.contact
+    }
+})
+
 export default class HomeAbout extends Component {
 
   constructor() {
@@ -8,8 +17,22 @@ export default class HomeAbout extends Component {
     this.state = {
       message: '',
       email: false,
-      phone: false
+      phone: false,
+      sentClass: ''
     }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.contact.status !== this.props.contact.status){
+      if (this.props.contact.status === 'Fulfilled') {
+        this.setState({message: '', email: false, phone: false});
+        setTimeout(this.resetState.bind(this), 3200);
+      }
+    }
+  }
+
+  resetState(){
+    this.props.dispatch(contactActs.resetStatus());
   }
 
   handleChange(event) {
@@ -51,10 +74,7 @@ export default class HomeAbout extends Component {
   }
 
   onSendBtn() {
-    this.setState({
-      email: false,
-      phone: false
-    });
+    this.props.dispatch(contactActs.sendMessage(this.state.message));
   }
 
   validateEmail(email) {
@@ -72,24 +92,30 @@ export default class HomeAbout extends Component {
     return(
         <footer className='Contact'>
             <div className='Contact-Left'>
-              <label>Send me a message</label>
-              <textarea id='MessageBox' value={this.state.message} onChange={this.handleChange.bind(this)}></textarea>
-              <div className='Contact-Message-Buttons'>
-                <button onClick={this.onEmailBtn.bind(this)}>+ Email</button>
-                <div className='Contact-Message-Check'><img alt='check' src={check} style={{opacity: this.state.email ? '1' : '0'}}></img></div>
-                <button onClick={this.onPhoneBtn.bind(this)}>+ Phone</button>
-                <div className='Contact-Message-Check'><img alt='check' src={check} style={{opacity: this.state.phone ? '1' : '0'}}></img></div>
+              <label>{this.props.contact.statusMessage}</label>
+              <textarea className={this.props.contact.style} id='MessageBox' value={this.state.message} onChange={this.handleChange.bind(this)}></textarea>
+              <div className='Contact-Message-Check-Wrap'>
+                <div className='Contact-Message-Check' style={{display: this.state.email ? 'block' : 'none', opacity: this.state.email ? '1' : '0'}}>
+                  <img alt='check' src={check}></img>
+                  <p>Email</p>
+                </div>
+                <div className='clear'></div>
+                <div className='Contact-Message-Check' style={{display: this.state.phone ? 'block' : 'none', opacity: this.state.phone ? '1' : '0'}}>
+                  <img alt='check' src={check}></img>
+                  <p>Phone</p>
+                </div>
               </div>
               <div className='clear'></div>
-              <button onClick={this.onSendBtn.bind(this)}>Send</button>
+              <button className={this.props.contact.style} onClick={this.onSendBtn.bind(this)}>Send</button>
+              <div className='clear'></div>
             </div>
             <div className='Contact-Right'>
               <label>Email:</label>
               <a href='mailto:contact@mikenichols.me'>contact@mikenichols.me</a>
-              <label>Email:</label>
-              <a href='mailto:contact@mikenichols.me'>contact@mikenichols.me</a>
-              <label>Email:</label>
-              <a href='mailto:contact@mikenichols.me'>contact@mikenichols.me</a>
+              <label>Linkedin:</label>
+              <a target='_blank' href='http://linkedin.com/in/uxuimike'>uxuimike</a>
+              <label>Medium:</label>
+              <a target='_blank' href='https://medium.com/@uxuimike'>@uxuimike</a>
             </div>
             <div className='clear'></div>
         </footer>

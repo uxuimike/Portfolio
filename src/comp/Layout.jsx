@@ -26,7 +26,7 @@ export default class Layout extends Component {
 
     this.onResize = this.onResize.bind(this);
     this.onScroll = this.onScroll.bind(this);
-    
+
   }
 
   componentDidMount() {

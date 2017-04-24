@@ -10,14 +10,6 @@
   margin: 1em auto 0 auto;
 }
 
-.HomeAbout  {
-  height: 450px;
-}
-
-.HomeAbout p {
-  text-shadow: 0px 0px 2px rgb(72, 79, 89), 0px 0px 10px rgb(72, 79, 89);
-}
-
 .Home-Intro-Text h1 {
   font-size: 7em;
 }
@@ -79,6 +71,27 @@
   background-position: 100% 0%;
   background-size: 70%;
   background-repeat: no-repeat;
+}
+
+.HomeAbout  {
+  height: 450px;
+}
+
+.HomeAbout p {
+  text-shadow: 0px 0px 2px rgb(72, 79, 89), 0px 0px 10px rgb(72, 79, 89);
+}
+
+.About-Links {
+  display: block;
+  float: left;
+  font-size: 24px;
+  background-color: rgb(41, 171, 226);
+  color: rgb(242, 242, 242)!important;
+  width: 200px;
+  margin: 60px 40px 0 0;
+  padding: 20px;
+  border-radius: 3px;
+  text-align: center;
 }
 
 .activeHomeAbout{

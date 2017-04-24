@@ -1,3 +1,5 @@
+import DOMPurify from 'dompurify'
+
 const initialState = {
   status: 'Pending',
   posts: [],
@@ -32,13 +34,7 @@ export default function reducer(state = initialState, action){
             break;
         }
         case 'GET_HOME_FULFILLED':{
-            //Use url stored in config (set in feedAction) as key for batch object
-            state = {...state,
-               featuredWork: action.payload.data[JSON.parse(action.payload.config.data).featuredWork.url].posts,
-               featuredBlog: action.payload.data[JSON.parse(action.payload.config.data).featuredBlog.url].posts,
-               content: buildWPContentObj(action.payload.data[JSON.parse(action.payload.config.data).content.url].posts),
-              status: 'Fulfilled'
-            };
+            state = {...state, content: buildWPContentObj(action.payload.data.posts), status: 'Fulfilled'};
             break;
         }
         case 'GET_FEATURED_REJECTED':{
@@ -91,14 +87,15 @@ function buildWordpressObj(wp) {
 }
 
 function buildWPPageObj(wp) {
-  wp.content = wp.content.replace(/(<([^>]+)>)/ig,"");
+  //wp.content = wp.content.replace(/<!--yt /g, '{yt').replace(/ yt-->/g, '}');
   return wp;
 }
 
 function buildWPContentObj(wp) {
   let cObj = {};
   for (var c=0; c < wp.length; c++){
-    wp[c].content = wp[c].content.replace(/(<([^>]+)>)/ig,"");
+    //wp[c].content = wp[c].content.replace(/(<([^>]+)>)/ig,"").replace(/&#8217;/g, "'").replace(/&#8211;/g, '-');
+    wp[c].content = DOMPurify.sanitize(wp[c].content);
     cObj[wp[c].slug] = wp[c];
   }
   return cObj;

@@ -33,20 +33,33 @@ export default class Sort extends Component {
     //this.loadFeed(null, e.target.value);
   }
 
+  onType(e){
+    //this.setState({category: e.target.value});
+    this.props.onSort(this.state.sortOn, this.state.sortBy, e.target.value, );
+  }
+
   render(){
 
     return(
-      <div className='sortBy'>
-        <label>Sorted On:</label>
-        <select value={this.state.sortOn} onChange={this.onSortOn.bind(this)}>
-          <option value='date'>Date</option>
-          <option value='title'>Title</option>
-        </select>
-        <label>By:</label>
-        <select value={this.state.sortBy} onChange={this.onSortBy.bind(this)}>
-          <option value='ASC'>{this.state.ascTitle}</option>
-          <option value='DESC'>{this.state.desTitle}</option>
-        </select>
+      <div className='Blog-Sort-Wrap'>
+        <div className='sortBy'>
+          <select value={this.props.category} onChange={this.onType.bind(this)} className='Blog-Type'>
+            <option value='blog'>Blog</option>
+            <option value='work'>Work</option>
+          </select>
+          <label>Sorted On:</label>
+          <select value={this.state.sortOn} onChange={this.onSortOn.bind(this)} className='Sort-Select'>
+            <option value='date'>Date</option>
+            <option value='title'>Title</option>
+          </select>
+          <label>By:</label>
+          <select value={this.state.sortBy} onChange={this.onSortBy.bind(this)} className='Sort-Select'>
+            <option value='ASC'>{this.state.ascTitle}</option>
+            <option value='DESC'>{this.state.desTitle}</option>
+          </select>
+          <div className='clear'></div>
+        </div>
+        <div className='clear'></div>
       </div>
     )
   }
