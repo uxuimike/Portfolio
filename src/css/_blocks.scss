@@ -100,12 +100,6 @@
   margin: 20px 0 0 0;
 }
 
-.sortBy {
-  font-size: 24px;
-  font-weight: 300;
-  margin: 20px 0 0 0;
-}
-
 .Blog-Sort-Wrap {
   margin: 0 0 -20px 0;
 }
@@ -118,6 +112,10 @@
   display: block;
   float: left;
   margin: 10px 0 0 0;
+}
+
+.sortBy select::-ms-expand {
+    display: none;
 }
 
 .Sort-Select {
@@ -140,6 +138,7 @@
   background-position: 100% 50%;
   background-size: 10px 5px;
   outline: none;
+  -moz-appearance: none;
 }
 
 .Blog-Type {
@@ -161,6 +160,7 @@
   background-position: 100% 60%;
   background-size: 10px 5px;
   outline: none;
+  -moz-appearance: none;
 }
 
 .No-Results {
@@ -186,7 +186,11 @@
   width: 100px;
   margin: 80px 0 0 0;
   color: rgb(41, 171, 226);
+  font-size: 24px;
   cursor: pointer;
+  outline: none;
+  background: none;
+  border: none;
 }
 
 @media #{$tablet} {

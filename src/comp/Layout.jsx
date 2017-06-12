@@ -46,10 +46,10 @@ export default class Layout extends Component {
   }
 
   onScroll(){
-    this.sp = document.body.scrollTop;
+    this.sp = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
     //Set how often we want onScroll to dispatch
     if (this.sp > this.props.scrollPos + 10 || this.sp < this.props.scrollPos - 10) {
-      this.props.dispatch(viewActs.setScroll(document.body.scrollTop));
+      this.props.dispatch(viewActs.setScroll(this.sp));
     }
   }
 

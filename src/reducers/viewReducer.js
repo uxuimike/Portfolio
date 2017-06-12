@@ -26,9 +26,9 @@ export default function reducer(state = initialState, action){
             sections = state.sections;
             sections[secIndex].offset = action.payload.section.offset;
           }else {
-            sections = [ ...state.sections, action.payload.section]
+            sections = [ ...state.sections, action.payload.section];
           }
-          state = {...state, sections: sections.sort(sortSections)};
+          state = {...state, sections: sections.sort(sortSections)};;
           break;
         }
         case 'CHANGE_STYLE':{

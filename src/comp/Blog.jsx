@@ -111,7 +111,7 @@ export default class Blog extends Component {
 
       <div>
         <SearchBar />
-        <a onClick={this.onBack.bind(this)} className='Back-Link See-More-Img-Back'><Arrow /> Back</a>
+        <button onClick={this.onBack.bind(this)} className='Back-Link See-More-Img-Back'><Arrow /> Back</button>
         {this.renderConditionalComponent()}
       </div>
     )

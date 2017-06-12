@@ -19,3 +19,26 @@
   }
 
 }
+
+.Single-Page-Wrap h3 {
+  color: #29abe2;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.Single-Page-Wrap img {
+  width: 100%;
+  height: auto;
+}
+
+.Single-Page-Wrap .lesson {
+  background-color: #e8e8e8;
+  background-image: url('../img/bulb.svg');
+  background-position: 20px 50%;
+  background-size: 30px;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  padding: 20px 20px 20px 60px;
+  margin: 20px 0 20px 0;
+  font-style: italic;
+}
